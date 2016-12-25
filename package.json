@@ -1,0 +1,40 @@
+{
+  "name": "Tasklee",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "15.4.1",
+    "react-native": "0.39.2",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "18.0.0",
+    "babel-plugin-module-resolver": "^2.4.0",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "flow-bin": "0.35.0",
+    "jest": "18.0.0",
+    "react-redux": "^5.0.1",
+    "react-test-renderer": "15.4.1",
+    "standard": "^8.6.0",
+    "styled-components": "^1.2.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-native"
+    ]
+  }
+}
