@@ -16,12 +16,12 @@ const TouchableHighlight = styled.TouchableHighlight`
 
 export default class Radio extends Component {
   render () {
-    const { onRadioClick } = this.props
-    const src = images[this.props.type] || images.normal
+    const { onRadioClick, type } = this.props
+    const src = images[type] || images.normal
 
     return (
       <TouchableHighlight
-        activeOpacity={0.3}
+        activeOpacity={type === 'normal' ? 0.3 : 1}
         underlayColor='transparent'
         onPress={onRadioClick}
       >

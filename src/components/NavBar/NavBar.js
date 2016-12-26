@@ -55,7 +55,7 @@ You can change this in Settings`,
           tintColor: 'white',
           barTintColor: '#DB2B39',
           titleTextColor: 'white',
-          leftButtonIcon: require('../../../resources/images/add.png'),
+          leftButtonIcon: require('../../../resources/images/settings.png'),
           onLeftButtonPress: this.goToSettings.bind(this),
           rightButtonIcon: require('../../../resources/images/add.png'),
           onRightButtonPress: this.addTask.bind(this)
