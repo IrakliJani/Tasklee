@@ -31,7 +31,7 @@ class NavBar extends Component {
     if (tasks.size === taskLimit) {
       Alert.alert(
         'Task limit has been reached',
-        `Maximum allowed number of tasks is ${taskLimit}.\
+        `Maximum allowed number of tasks is ${taskLimit}. \
 You can change this in Settings`,
         [
           { text: 'OK' },

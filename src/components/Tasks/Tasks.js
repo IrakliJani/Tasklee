@@ -30,8 +30,8 @@ class Tasks extends Component {
     if (state === 'disabled') {
       Alert.alert(
         'You can\'t complete this Task',
-        `In order to mark this Task as completed,
-you should first complete all previous Tasks`,
+        `In order to mark this Task completed,
+you must complete all previous Tasks`,
         [
           { text: 'OK' }
         ]
