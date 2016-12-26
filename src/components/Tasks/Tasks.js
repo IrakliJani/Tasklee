@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { Alert } from 'react-native'
 import { connect } from 'react-redux'
 import styled from 'styled-components/native'
 import Task from 'Tasklee/src/components/Task'
@@ -23,22 +23,54 @@ const Greeting = styled.Text`
 const enhancer = connect(state => ({ tasks: state.tasks }), taskActions)
 
 class Tasks extends Component {
+  completeTask (state, task) {
+    const { completeTask } = this.props
+    console.log('>>>>>>>>>>>>>> task: ', task)
+
+    if (state === 'disabled') {
+      Alert.alert(
+        'You can\'t complete this Task',
+        `In order to mark this Task as completed,
+you should first complete all previous Tasks`,
+        [
+          { text: 'OK' }
+        ]
+      )
+    } else {
+      completeTask(task.get('id'))
+    }
+  }
+
   render () {
-    const { tasks, editTask, completeTask } = this.props
+    const { editTask } = this.props
+    const tasks = this.props.tasks.toList()
 
     return (
       <MainContainer>
         <Greeting>Here is your priority task list for today</Greeting>
 
-        {tasks.entrySeq().map(([id, task], index) =>
-          <Task
+        {tasks.map((task, index) => {
+          const id = task.get('id')
+          const prevIndex = index - 1
+          const prev = prevIndex >= 0 ? tasks.get(prevIndex) : null
+
+          var state = 'disabled'
+
+          if (task.get('isCompleted')) {
+            state = 'selected'
+          } else if (!prev || (prev && prev.get('isCompleted'))) {
+            state = 'normal'
+          }
+
+          return <Task
             key={id}
+            state={state}
             autoFocus={index === 0}
-            onRadioClick={() => completeTask(id)}
+            onRadioClick={this.completeTask.bind(this, state, task)}
             onSubmitEditing={value => editTask(id, value)}
             {...task.toJS()}
           />
-        )}
+        })}
       </MainContainer>
     )
   }

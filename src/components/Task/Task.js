@@ -38,24 +38,26 @@ export default class Task extends Component {
   render () {
     const {
       text, isEdit, isCompleted,
-      onSubmitEditing, onRadioClick
+      onSubmitEditing, onRadioClick,
+      state
     } = this.props
-
-    const radioType = isCompleted ? 'selected' : 'normal'
 
     return (
       <TaskItem>
-        <Radio type={radioType} onRadioClick={onRadioClick} />
-        { isEdit ?
-          <TextInput
-            style={{flex: 1}}
-            ref='input'
-            defaultValue={text}
-            placeholder='Type in your priority task'
-            returnKeyType='done'
-            onSubmitEditing={({ nativeEvent: e }) => onSubmitEditing(e.text)}
-          />
-        : <Text isCompleted={isCompleted}>{text}</Text>
+        <Radio type={state} onRadioClick={onRadioClick} />
+
+        { isEdit
+          ?
+            <TextInput
+              style={{flex: 1}}
+              ref='input'
+              defaultValue={text}
+              placeholder='Type in your priority task'
+              returnKeyType='done'
+              onSubmitEditing={({ nativeEvent: e }) => onSubmitEditing(e.text)}
+            />
+          :
+            <Text isCompleted={isCompleted}>{text}</Text>
         }
       </TaskItem>
     )

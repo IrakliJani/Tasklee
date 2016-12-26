@@ -32,7 +32,7 @@ class NavBar extends Component {
       Alert.alert(
         'Task limit has been reached',
         `Maximum allowed number of tasks is ${taskLimit}.\
-          You can change this in Settings`,
+You can change this in Settings`,
         [
           { text: 'OK' },
           { text: 'Settings', onPress: () => this.goToSettings() }
