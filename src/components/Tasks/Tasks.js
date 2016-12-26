@@ -28,19 +28,17 @@ class Tasks extends Component {
 
     return (
       <MainContainer>
-        <View>
-          <Greeting>Here is your priority task list for today</Greeting>
+        <Greeting>Here is your priority task list for today</Greeting>
 
-          {tasks.entrySeq().map(([id, task], index) =>
-            <Task
-              key={id}
-              autoFocus={index === 0}
-              onRadioClick={() => completeTask(id)}
-              onSubmitEditing={value => editTask(id, value)}
-              {...task.toJS()}
-            />
-          )}
-        </View>
+        {tasks.entrySeq().map(([id, task], index) =>
+          <Task
+            key={id}
+            autoFocus={index === 0}
+            onRadioClick={() => completeTask(id)}
+            onSubmitEditing={value => editTask(id, value)}
+            {...task.toJS()}
+          />
+        )}
       </MainContainer>
     )
   }
