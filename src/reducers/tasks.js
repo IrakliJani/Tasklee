@@ -30,6 +30,9 @@ export default function (
         .update(action.index, task => task.set('state', 'completed'))
         .update(action.index + 1, task => task && task.set('state', 'normal'))
 
+    case 'REMOVE_TASK':
+      return state.delete(action.index)
+
     case 'CLEAR_TASKS':
       return List()
 

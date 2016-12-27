@@ -1,12 +1,13 @@
 // @flow
 
 import React, { Component } from 'react'
-import { Alert, ListView, Button } from 'react-native'
+import { Alert, ListView } from 'react-native'
 import { connect } from 'react-redux'
 import styled from 'styled-components/native'
 import Task from 'Tasklee/src/components/Task'
 import TaskRecord from 'Tasklee/src/records/task'
 import * as taskActions from 'Tasklee/src/actions/tasks'
+import Swipeout from 'react-native-swipeout'
 
 const MainContainer = styled.View`
   background-color: #FDF4F5;
@@ -47,10 +48,7 @@ class Tasks extends Component {
   componentWillReceiveProps (nextProps) {
     if (nextProps.tasks && !nextProps.tasks.equals(this.props.tasks)) {
       const data = nextProps.tasks.toJS()
-
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(data)
-      })
+      this.setState({ dataSource: this.state.dataSource.cloneWithRows(data) })
     }
   }
 
@@ -73,14 +71,30 @@ you must complete all previous Tasks`,
     const index = Number(rowId)
     const task = this.props.tasks.get(index)
 
-    return <Task
-      key={id}
-      state={task.state}
-      autoFocus={index === 0}
-      onRadioClick={this.completeTask.bind(this, index, task.state)}
-      onSubmitEditing={value => this.props.editTask(index, value)}
-      {...task.toJS()}
-    />
+    const swipeoutButtons = [
+      {
+        text: 'Delete',
+        backgroundColor: '#DB2B39',
+        underlayColor: '#DC0012',
+        onPress: this.props.removeTask.bind(this, index)
+      }
+    ]
+
+    return (
+      <Swipeout
+        key={id}
+        right={swipeoutButtons}
+        backgroundColor='white'
+      >
+        <Task
+          state={task.state}
+          autoFocus={index === 0}
+          onRadioClick={this.completeTask.bind(this, index, task.state)}
+          onSubmitEditing={value => this.props.editTask(index, value)}
+          {...task.toJS()}
+        />
+      </Swipeout>
+    )
   }
 
   render () {

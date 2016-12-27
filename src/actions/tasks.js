@@ -29,6 +29,13 @@ export function completeTask (index: number) {
   }
 }
 
+export function removeTask (index: number) {
+  return {
+    type: 'REMOVE_TASK',
+    index: index
+  }
+}
+
 export function clearTasks () {
   return {
     type: 'CLEAR_TASKS'

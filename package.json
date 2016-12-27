@@ -7,9 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "rc-swipeout": "^1.1.5",
     "react": "15.4.1",
     "react-native": "0.39.2",
+    "react-native-swipeout": "https://github.com/dancormier/react-native-swipeout.git",
     "redux": "^3.6.0",
     "redux-persist": "^4.0.1"
   },
@@ -27,7 +27,10 @@
     "styled-components": "^1.2.1"
   },
   "jest": {
-    "preset": ["react-native", "latest"]
+    "preset": [
+      "react-native",
+      "latest"
+    ]
   },
   "standard": {
     "parser": "babel-eslint",
