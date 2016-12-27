@@ -1,17 +1,13 @@
 // @flow
 
+import Task from 'Tasklee/src/records/task'
+
 export function addTask () {
   const id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)
 
   return {
     type: 'ADD_TASK',
-    id: id,
-    payload: {
-      id,
-      text: '',
-      isCompleted: false,
-      isEdit: true
-    }
+    task: new Task({ id })
   }
 }
 
@@ -30,5 +26,11 @@ export function completeTask (id: string) {
   return {
     type: 'COMPLETE_TASK',
     id: id
+  }
+}
+
+export function clearTasks () {
+  return {
+    type: 'CLEAR_TASKS'
   }
 }

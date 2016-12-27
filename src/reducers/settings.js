@@ -1,6 +1,6 @@
 // @flow
 
-import { Map } from 'immutable'
+import Settings from 'Tasklee/src/records/settings'
 
 type ActionType = {
   id: number,
@@ -9,13 +9,10 @@ type ActionType = {
   value: string | number
 }
 
-const defaultState = Map({
-  taskLimit: 5,
-  morningNotification: true,
-  eveningNotification: true
-})
-
-export default function (state: Map<string, any> = defaultState, action: ActionType) {
+export default function (
+  state: Settings = new Settings(),
+  action: ActionType
+) {
   switch (action.type) {
     case 'SET_TASK_LIMIT':
       return state.set('taskLimit', action.value)

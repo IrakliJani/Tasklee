@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "rc-swipeout": "^1.1.5",
     "react": "15.4.1",
     "react-native": "0.39.2",
     "redux": "^3.6.0",
@@ -16,6 +17,7 @@
     "babel-eslint": "^7.1.1",
     "babel-jest": "18.0.0",
     "babel-plugin-module-resolver": "^2.4.0",
+    "babel-preset-latest": "^6.16.0",
     "eslint-plugin-flowtype": "^2.29.1",
     "flow-bin": "0.35.0",
     "jest": "18.0.0",
@@ -25,7 +27,7 @@
     "styled-components": "^1.2.1"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": ["react-native", "latest"]
   },
   "standard": {
     "parser": "babel-eslint",

@@ -31,12 +31,12 @@ class Settings extends Component {
     return (
       <MainContainer>
         <Label>
-          Daily task limit: {settings.get('taskLimit')}
+          Daily task limit: {settings.taskLimit}
         </Label>
 
         <Slider
           onValueChange={(value) => setTaskLimit(value)}
-          value={settings.get('taskLimit')}
+          value={settings.taskLimit}
           minimumValue={1}
           maximumValue={10}
           step={1}
@@ -48,7 +48,7 @@ class Settings extends Component {
         </Label>
 
         <Switch
-          value={settings.get('morningNotification')}
+          value={settings.morningNotification}
           onValueChange={(value) => setNotification('morning', value)}
           onTintColor='#27D772'
         />
@@ -58,7 +58,7 @@ class Settings extends Component {
         </Label>
 
         <Switch
-          value={settings.get('eveningNotification')}
+          value={settings.eveningNotification}
           onValueChange={(value) => setNotification('evening', value)}
           onTintColor='#27D772'
         />

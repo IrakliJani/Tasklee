@@ -26,7 +26,7 @@ class NavBar extends Component {
 
   addTask () {
     const { settings, tasks, addTask } = this.props
-    const taskLimit = settings.get('taskLimit')
+    const taskLimit = settings.taskLimit
 
     if (tasks.size === taskLimit) {
       Alert.alert(

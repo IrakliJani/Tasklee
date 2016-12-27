@@ -23,6 +23,6 @@ const immutableTransformer = createTransform(
 persistStore(store, {
   storage: AsyncStorage,
   transforms: [immutableTransformer]
-})
+}).purge()
 
 export default store

@@ -1,21 +1,39 @@
 // @flow
 
-import { Map } from 'immutable'
+import { List } from 'immutable'
+import Task from 'Tasklee/src/records/task'
 
-type ActionType = { id: number; type: string; payload: ?{} }
+type ActionType = {
+  type: string,
+  id: ?string,
+  task: ?Task,
+  payload: ?{}
+}
 
-export default function (state: Map<number, {}> = Map(), action: ActionType) {
+export default function (
+  state: List<Task> = List(),
+  action: ActionType
+) {
   switch (action.type) {
     case 'ADD_TASK':
-      return state.set(action.id, Map(action.payload))
+      return state.push(action.task)
 
     case 'EDIT_TASK':
-      return state.update(action.id, task =>
-        task.merge(Map(action.payload)))
+      return state.map(task =>
+        task.id === action.id
+          ? task.merge(action.payload)
+          : task
+        )
 
     case 'COMPLETE_TASK':
-      return state.update(action.id, task =>
-        task.set('isCompleted', true))
+      return state.map(task =>
+        task.id === action.id
+          ? task.set('isCompleted', true)
+          : task
+      )
+
+    case 'CLEAR_TASKS':
+      return List()
 
     default:
       return state

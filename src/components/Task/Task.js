@@ -8,8 +8,6 @@ import Radio from 'Tasklee/src/components/Radio'
 const TaskItem = styled.View`
   background-color: white;
   height: 60;
-  border-bottom-width: 1;
-  border-color: #E8DCDD;
   flex-direction: row;
   align-items: center;
   padding-left: 15;
@@ -23,10 +21,6 @@ const Text = styled.Text`
   text-decoration-style: solid;
   text-decoration-color: #DB2B39;
 `
-
-// const TextInput = styled.TextInput`
-//   flex: 1;
-// `
 
 export default class Task extends Component {
   componentDidMount () {
