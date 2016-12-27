@@ -71,19 +71,17 @@ you must complete all previous Tasks`,
     const index = Number(rowId)
     const task = this.props.tasks.get(index)
 
-    const swipeoutButtons = [
-      {
-        text: 'Delete',
-        backgroundColor: '#DB2B39',
-        underlayColor: '#DC0012',
-        onPress: this.props.removeTask.bind(this, index)
-      }
-    ]
+    const buttons = [{
+      text: 'Delete',
+      backgroundColor: '#DB2B39',
+      underlayColor: '#DC0012',
+      onPress: this.props.removeTask.bind(this, index)
+    }]
 
     return (
       <Swipeout
         key={id}
-        right={swipeoutButtons}
+        right={buttons}
         backgroundColor='white'
       >
         <Task
