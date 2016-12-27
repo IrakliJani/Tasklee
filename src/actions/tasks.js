@@ -11,10 +11,10 @@ export function addTask () {
   }
 }
 
-export function editTask (id: string, text: string) {
+export function editTask (index: number, text: string) {
   return {
     type: 'EDIT_TASK',
-    id: id,
+    index: index,
     payload: {
       text,
       isEdit: false
@@ -22,10 +22,10 @@ export function editTask (id: string, text: string) {
   }
 }
 
-export function completeTask (id: string) {
+export function completeTask (index: number) {
   return {
     type: 'COMPLETE_TASK',
-    id: id
+    index: index
   }
 }
 

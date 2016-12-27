@@ -4,6 +4,7 @@ const Task = Record({
   id: null,
   text: '',
   isCompleted: false,
+  state: 'disabled',
   isEdit: true
 })
 

@@ -54,7 +54,7 @@ class Tasks extends Component {
     }
   }
 
-  completeTask (state, id) {
+  completeTask (index, state) {
     const { completeTask } = this.props
 
     if (state === 'disabled') {
@@ -65,29 +65,20 @@ you must complete all previous Tasks`,
         [{ text: 'OK' }]
       )
     } else {
-      completeTask(id)
+      completeTask(index)
     }
   }
 
   renderRow ({ id }, _, rowId) {
-    const { editTask, tasks } = this.props
-    const task = tasks.find(t => t.id === id)
-    const prevIndex = rowId - 1
-    const prev = prevIndex >= 0 ? tasks.get(prevIndex) : null
-    var state = 'disabled'
-
-    if (task.isCompleted) {
-      state = 'selected'
-    } else if (!prev || (prev && prev.isCompleted)) {
-      state = 'normal'
-    }
+    const index = Number(rowId)
+    const task = this.props.tasks.get(index)
 
     return <Task
       key={id}
-      state={state}
-      autoFocus={rowId === 0}
-      onRadioClick={this.completeTask.bind(this, state, id)}
-      onSubmitEditing={value => editTask(id, value)}
+      state={task.state}
+      autoFocus={index === 0}
+      onRadioClick={this.completeTask.bind(this, index, task.state)}
+      onSubmitEditing={value => this.props.editTask(index, value)}
       {...task.toJS()}
     />
   }
@@ -114,6 +105,7 @@ you must complete all previous Tasks`,
           dataSource={this.state.dataSource}
           renderRow={this.renderRow.bind(this)}
           renderSeparator={(s, r) => <Separator key={`${s}-${r}`} />}
+          enableEmptySections
         />
       </MainContainer>
     )

@@ -6,8 +6,8 @@ import { Image } from 'react-native'
 
 const images = {
   normal: require('Tasklee/resources/images/radio.png'),
-  selected: require('Tasklee/resources/images/radio-selected.png'),
-  disabled: require('Tasklee/resources/images/radio-disabled.png')
+  disabled: require('Tasklee/resources/images/radio-disabled.png'),
+  completed: require('Tasklee/resources/images/radio-selected.png')
 }
 
 const TouchableHighlight = styled.TouchableHighlight`
