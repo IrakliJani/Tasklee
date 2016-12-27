@@ -84,7 +84,7 @@ you must complete all previous Tasks`,
   }
 
   render () {
-    const { clearTasks, tasks } = this.props
+    const { tasks } = this.props
 
     return (
       <MainContainer>
@@ -92,12 +92,12 @@ you must complete all previous Tasks`,
           Here is your priority task list for today
         </Greeting>
 
-        <Button
+        {/* <Button
           title='clean'
           color='red'
           style={{ marginBottom: 40 }}
           onPress={clearTasks}
-        />
+        /> */}
 
         { tasks.size > 0 && <Separator /> }
 

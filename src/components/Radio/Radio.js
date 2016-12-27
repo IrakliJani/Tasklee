@@ -21,9 +21,9 @@ export default class Radio extends Component {
 
     return (
       <TouchableHighlight
-        activeOpacity={type === 'normal' ? 0.3 : 1}
         underlayColor='transparent'
-        onPress={onRadioClick}
+        activeOpacity={type === 'normal' ? 0.3 : 1}
+        onPress={type === 'normal' ? onRadioClick : () => {}}
       >
         <Image source={src} />
       </TouchableHighlight>
