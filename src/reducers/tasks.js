@@ -32,7 +32,20 @@ export default function (
 
     case 'REMOVE_TASK':
       return state
-        .update(action.index + 1, task => task && task.set('state', 'normal'))
+        .update(action.index + 1, task => {
+          if (task) {
+            const pid = action.index - 1
+            const prev = pid >= 0 ? state.get(pid) : null
+
+            if (!prev || prev.get('state') === 'completed') {
+              return task.set('state', 'normal')
+            } else {
+              return task
+            }
+          } else {
+            return task
+          }
+        })
         .delete(action.index)
 
     case 'CLEAR_TASKS':
