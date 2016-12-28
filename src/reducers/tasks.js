@@ -5,7 +5,7 @@ import Task from 'Tasklee/src/records/task'
 
 type ActionType = {
   type: string,
-  index: ?string,
+  index: number,
   task: Task,
   payload: ?{}
 }
