@@ -42,7 +42,10 @@ class Tasks extends Component {
         !TaskRecord(oldRow).equals(TaskRecord(newRow))
     })
 
-    this.state = { dataSource }
+    this.state = {
+      dataSource,
+      scrollEnabled: true
+    }
   }
 
   componentWillReceiveProps (nextProps) {
@@ -50,6 +53,10 @@ class Tasks extends Component {
       const data = nextProps.tasks.toJS()
       this.setState({ dataSource: this.state.dataSource.cloneWithRows(data) })
     }
+  }
+
+  allowScroll (scrollEnabled) {
+    this.setState({ scrollEnabled })
   }
 
   completeTask (index, state) {
@@ -95,6 +102,7 @@ you must complete all previous Tasks`,
         key={id}
         right={buttons}
         backgroundColor='white'
+        scroll={event => this.allowScroll(event)}
       >
         <Task
           state={task.state}
@@ -127,6 +135,7 @@ you must complete all previous Tasks`,
 
         <ListView
           dataSource={this.state.dataSource}
+          scrollEnabled={this.state.scrollEnabled}
           renderRow={this.renderRow.bind(this)}
           renderSeparator={(s, r) => <Separator key={`${s}-${r}`} />}
           enableEmptySections
