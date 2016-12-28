@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react'
-import { Alert, ListView } from 'react-native'
+import { Alert, ListView, TouchableHighlight, Text } from 'react-native'
 import { connect } from 'react-redux'
 import styled from 'styled-components/native'
 import Task from 'Tasklee/src/components/Task'
@@ -72,10 +72,22 @@ you must complete all previous Tasks`,
     const task = this.props.tasks.get(index)
 
     const buttons = [{
-      text: 'Delete',
-      backgroundColor: '#DB2B39',
-      underlayColor: '#DC0012',
-      onPress: this.props.removeTask.bind(this, index)
+      backgroundColor: 'white',
+      component: <TouchableHighlight
+        underlayColor='#DB2B39'
+        activeOpacity={0.7}
+        style={{
+          backgroundColor: '#DB2B39',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+        onPress={this.props.removeTask.bind(this, index)}
+      >
+        <Text style={{
+          color: 'white'
+        }}>Delete</Text>
+      </TouchableHighlight>
     }]
 
     return (

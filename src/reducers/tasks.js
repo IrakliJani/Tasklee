@@ -37,7 +37,9 @@ export default function (
             const pid = action.index - 1
             const prev = pid >= 0 ? state.get(pid) : null
 
-            if (!prev || prev.get('state') === 'completed') {
+            if (task.get('state') === 'completed') {
+              return task
+            } else if (!prev || prev.get('state') === 'completed') {
               return task.set('state', 'normal')
             } else {
               return task
