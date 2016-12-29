@@ -41,17 +41,15 @@ export default class Task extends Component {
         <Radio type={state} onRadioClick={onRadioClick} />
 
         { isEdit
-          ?
-            <TextInput
-              style={{flex: 1}}
-              ref='input'
-              defaultValue={text}
-              placeholder='Type in your priority task'
-              returnKeyType='done'
-              onSubmitEditing={({ nativeEvent: e }) => onSubmitEditing(e.text)}
-            />
-          :
-            <Text isCompleted={isCompleted}>{text}</Text>
+          ? <TextInput
+            style={{flex: 1}}
+            ref='input'
+            defaultValue={text}
+            placeholder='Type in your priority task'
+            returnKeyType='done'
+            onSubmitEditing={({ nativeEvent: e }) => onSubmitEditing(e.text)}
+          />
+          : <Text isCompleted={isCompleted}>{text}</Text>
         }
       </TaskItem>
     )
