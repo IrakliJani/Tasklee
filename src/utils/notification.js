@@ -1,11 +1,11 @@
 import { PushNotificationIOS as Notification } from 'react-native'
 import moment from 'moment'
 
-Notification.addEventListener('register', () =>
-  console.info('>> register'))
-
-Notification.addEventListener('registrationError', () =>
-  console.error('<< regerror'))
+// Notification.addEventListener('register', () =>
+//   console.info('>> register'))
+//
+// Notification.addEventListener('registrationError', () =>
+//   console.error('<< regerror'))
 
 async function setup (onMorning = true, onEvening = true) {
   await Notification.requestPermissions()
@@ -32,8 +32,8 @@ async function setup (onMorning = true, onEvening = true) {
     })
   }
 
-  Notification.getScheduledLocalNotifications(data =>
-    console.info('scheduled notifications: ', data))
+  // Notification.getScheduledLocalNotifications(data =>
+  //   console.info('scheduled notifications: ', data))
 }
 
 export { setup }
