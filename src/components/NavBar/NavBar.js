@@ -6,6 +6,7 @@ import Tasks from 'Tasklee/src/components/Tasks'
 import Settings from 'Tasklee/src/components/Settings'
 import { connect } from 'react-redux'
 import * as taskActions from 'Tasklee/src/actions/tasks'
+import * as Notifications from 'Tasklee/src/utils/notification'
 
 const enhancer = connect(
   (state) => ({ tasks: state.tasks, settings: state.settings }),
@@ -13,6 +14,15 @@ const enhancer = connect(
 )
 
 class NavBar extends Component {
+  constructor (props: any) {
+    super(props)
+
+    Notifications.setup(
+      props.settings.morningNotification,
+      props.settings.eveningNotification
+    )
+  }
+
   goToSettings () {
     this.refs.nav.push({
       component: Settings,

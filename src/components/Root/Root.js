@@ -12,8 +12,6 @@ const View = styled.View`
   flex: 1;
 `
 
-// D72734
-
 export default class Root extends Component {
   render () {
     return (
