@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Slider, Switch } from 'react-native'
 import styled from 'styled-components/native'
 import { connect } from 'react-redux'
+import SettingsRecord from 'Tasklee/src/records/settings'
 import * as settingsActions from 'Tasklee/src/actions/settings'
 
 const Label = styled.Text`
@@ -20,7 +21,7 @@ const MainContainer = styled.View`
 `
 
 const enhancer = connect(
-  state => ({ settings: state.settings }),
+  state => ({ settings: SettingsRecord(state.settings) }),
   settingsActions
 )
 
