@@ -14,7 +14,7 @@ const TaskItem = styled.View`
   padding-right: 15;
 `
 
-const Text = styled.Text`
+const TaskText = styled.Text`
   font-size: 17;
   color: #030303;
   text-decoration-line: ${props => props.isCompleted ? 'line-through' : 'none'};
@@ -30,11 +30,7 @@ export default class Task extends Component {
   }
 
   render () {
-    const {
-      text, isEdit, isCompleted,
-      onSubmitEditing, onRadioClick,
-      state
-    } = this.props
+    const { text, isEdit, onSubmitEditing, onRadioClick, state } = this.props
 
     return (
       <TaskItem>
@@ -49,7 +45,7 @@ export default class Task extends Component {
             returnKeyType='done'
             onSubmitEditing={({ nativeEvent: e }) => onSubmitEditing(e.text)}
           />
-          : <Text isCompleted={isCompleted}>{text}</Text>
+          : <TaskText isCompleted={state === 'completed'}>{text}</TaskText>
         }
       </TaskItem>
     )
