@@ -1,9 +1,9 @@
 // @flow
 
 import React, { Component } from 'react'
-import styled from 'styled-components/native'
 import { TextInput } from 'react-native'
-import Radio from 'Tasklee/src/components/Radio'
+import styled from 'styled-components/native'
+import Radio from 'components/Radio'
 
 const TaskItem = styled.View`
   background-color: white;

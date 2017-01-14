@@ -1,6 +1,6 @@
 // @flow
 
-import Task from 'Tasklee/src/records/task'
+import Task from 'records/task'
 
 export function addTask () {
   const id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)

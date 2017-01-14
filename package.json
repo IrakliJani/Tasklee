@@ -10,7 +10,7 @@
     "moment": "^2.17.1",
     "react": "15.4.1",
     "react-native": "0.39.2",
-    "react-native-swipeout": "2.1.0",
+    "react-native-swipeout": "https://github.com/dancormier/react-native-swipeout.git",
     "redux": "^3.6.0",
     "redux-persist": "^4.0.1"
   },
@@ -34,6 +34,9 @@
   "babel": {
     "presets": [
       "react-native"
+    ],
+    "plugins": [
+      ["module-resolver", { "root": ["./src"] }]
     ]
   }
 }

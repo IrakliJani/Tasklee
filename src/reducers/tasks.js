@@ -1,7 +1,7 @@
 // @flow
 
 import { List } from 'immutable'
-import Task from 'Tasklee/src/records/task'
+import Task from 'records/task'
 
 type ActionType = {
   type: string,

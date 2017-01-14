@@ -5,8 +5,8 @@ import { createStore, combineReducers } from 'redux'
 import { persistStore, autoRehydrate, createTransform } from 'redux-persist'
 import { fromJS } from 'immutable'
 
-import tasksReducer from 'Tasklee/src/reducers/tasks'
-import settingsReducer from 'Tasklee/src/reducers/settings'
+import tasksReducer from 'reducers/tasks'
+import settingsReducer from 'reducers/settings'
 
 const rootReducer = combineReducers({
   tasks: tasksReducer,

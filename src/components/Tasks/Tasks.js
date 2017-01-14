@@ -2,12 +2,12 @@
 
 import React, { Component } from 'react'
 import { Alert, ListView, TouchableHighlight, Text } from 'react-native'
+import Swipeout from 'react-native-swipeout'
 import { connect } from 'react-redux'
 import styled from 'styled-components/native'
-import Task from 'Tasklee/src/components/Task'
-import TaskRecord from 'Tasklee/src/records/task'
-import * as taskActions from 'Tasklee/src/actions/tasks'
-import Swipeout from 'react-native-swipeout'
+import Task from 'components/Task'
+import TaskRecord from 'records/task'
+import * as taskActions from 'actions/tasks'
 
 const MainContainer = styled.View`
   background-color: #FDF4F5;

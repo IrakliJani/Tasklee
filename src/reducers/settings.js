@@ -1,6 +1,6 @@
 // @flow
 
-import Settings from 'Tasklee/src/records/settings'
+import Settings from 'records/settings'
 
 type ActionType = {
   id: number,

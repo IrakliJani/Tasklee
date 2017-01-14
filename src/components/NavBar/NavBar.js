@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react'
 import { NavigatorIOS, Alert } from 'react-native'
-import Tasks from 'Tasklee/src/components/Tasks'
-import Settings from 'Tasklee/src/components/Settings'
 import { connect } from 'react-redux'
-import * as taskActions from 'Tasklee/src/actions/tasks'
-import * as Notifications from 'Tasklee/src/utils/notification'
+import Tasks from 'components/Tasks'
+import Settings from 'components/Settings'
+import * as taskActions from 'actions/tasks'
+import * as Notifications from 'utils/notification'
 
 const enhancer = connect(
-  (state) => ({ tasks: state.tasks, settings: state.settings }),
+  state => ({ tasks: state.tasks, settings: state.settings }),
   taskActions
 )
 

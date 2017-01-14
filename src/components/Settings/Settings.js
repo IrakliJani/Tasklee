@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react'
 import { Slider, Switch } from 'react-native'
-import styled from 'styled-components/native'
 import { connect } from 'react-redux'
-import SettingsRecord from 'Tasklee/src/records/settings'
-import * as settingsActions from 'Tasklee/src/actions/settings'
+import styled from 'styled-components/native'
+import SettingsRecord from 'records/settings'
+import * as settingsActions from 'actions/settings'
 
 const Label = styled.Text`
   margin-top: 20;
