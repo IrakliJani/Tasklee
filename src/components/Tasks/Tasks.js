@@ -74,6 +74,14 @@ you must complete all previous Tasks`,
     }
   }
 
+  onSubmitEditing (index, value) {
+    if (value.trim() !== '') {
+      this.props.editTask(index, value)
+    } else {
+      this.props.removeTask(index)
+    }
+  }
+
   renderRow ({ id }, _, rowId) {
     const index = Number(rowId)
     const task = this.props.tasks.get(index)
@@ -108,7 +116,7 @@ you must complete all previous Tasks`,
           state={task.state}
           autoFocus={index === 0}
           onRadioClick={this.completeTask.bind(this, index, task.state)}
-          onSubmitEditing={value => this.props.editTask(index, value)}
+          onSubmitEditing={value => this.onSubmitEditing(index, value)}
           {...task.toJS()}
         />
       </Swipeout>

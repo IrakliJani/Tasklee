@@ -44,6 +44,7 @@ export default class Task extends Component {
             placeholder='Type in your priority task'
             returnKeyType='done'
             onSubmitEditing={({ nativeEvent: e }) => onSubmitEditing(e.text)}
+            onBlur={({ nativeEvent: e }) => onSubmitEditing(e.text)}
           />
           : <TaskText isCompleted={state === 'completed'}>{text}</TaskText>
         }
