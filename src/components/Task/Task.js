@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { TextInput } from 'react-native'
 import styled from 'styled-components/native'
-import Radio from 'components/Radio'
+import { Radio } from 'components'
 
 const TaskItem = styled.View`
   background-color: white;

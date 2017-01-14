@@ -1,6 +1,6 @@
 // @flow
 
 import { AppRegistry } from 'react-native'
-import Tasklee from 'components/Root'
+import { Root } from 'components'
 
-AppRegistry.registerComponent('Tasklee', () => Tasklee)
+AppRegistry.registerComponent('Tasklee', () => Root)

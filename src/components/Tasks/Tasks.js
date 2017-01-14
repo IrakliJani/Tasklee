@@ -5,7 +5,7 @@ import { Alert, ListView, TouchableHighlight, Text } from 'react-native'
 import Swipeout from 'react-native-swipeout'
 import { connect } from 'react-redux'
 import styled from 'styled-components/native'
-import Task from 'components/Task'
+import { Task } from 'components'
 import TaskRecord from 'records/task'
 import * as taskActions from 'actions/tasks'
 

@@ -3,8 +3,7 @@
 import React, { Component } from 'react'
 import { NavigatorIOS, Alert } from 'react-native'
 import { connect } from 'react-redux'
-import Tasks from 'components/Tasks'
-import Settings from 'components/Settings'
+import { Tasks, Settings } from 'components'
 import * as taskActions from 'actions/tasks'
 import * as Notifications from 'utils/notification'
 
