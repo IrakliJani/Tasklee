@@ -2677,6 +2677,10 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-animatable@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.1.0.tgz#1ca3e8a00e441979d5711805651ff62a2d3b245a"
+
 "react-native-swipeout@https://github.com/dancormier/react-native-swipeout.git":
   version "2.0.12"
   resolved "https://github.com/dancormier/react-native-swipeout.git#829b7c01ba969cd70509944bc210289b759d48a6"

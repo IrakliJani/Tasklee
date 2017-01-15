@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import { Alert, ListView, TouchableHighlight, Text } from 'react-native'
+import { createAnimatableComponent } from 'react-native-animatable'
 import Swipeout from 'react-native-swipeout'
 import { connect } from 'react-redux'
 import moment from 'moment'
@@ -14,6 +15,7 @@ const MainContainer = styled.View`
   background-color: #FDF4F5;
   flex: 1;
 `
+const AnimatedMainContainer = createAnimatableComponent(MainContainer)
 
 const Greeting = styled.Text`
   margin-top: 20;
@@ -135,12 +137,15 @@ you must complete all previous Tasks`,
     const { tasks } = this.props
 
     return (
-      <MainContainer>
-        <Greeting>{
-          tasks.size === 0
+      <AnimatedMainContainer
+        animation='fadeInDown'
+        delay={500}
+        useNativeDriver
+      >
+        <Greeting>
+          { tasks.size === 0
             ? 'You haven\'t added have any tasks yet. 😶'
-            : 'Here is your priority task list for today. 👀'
-        }
+            : 'Here is your priority task list for today. 👀' }
         </Greeting>
 
         {/* <Button
@@ -159,7 +164,7 @@ you must complete all previous Tasks`,
           renderSeparator={(s, r) => <Separator key={`${s}-${r}`} />}
           enableEmptySections
         />
-      </MainContainer>
+      </AnimatedMainContainer>
     )
   }
 }

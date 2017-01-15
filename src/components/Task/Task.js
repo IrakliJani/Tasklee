@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import { TextInput } from 'react-native'
+import { createAnimatableComponent } from 'react-native-animatable'
 import styled from 'styled-components/native'
 import { Radio } from 'components'
 
@@ -13,6 +14,8 @@ const TaskItem = styled.View`
   padding-left: 15;
   padding-right: 15;
 `
+
+const AnimatedTaskItem = createAnimatableComponent(TaskItem)
 
 const TaskText = styled.Text`
   font-size: 17;
@@ -33,7 +36,7 @@ export default class Task extends Component {
     const { text, isEdit, onSubmitEditing, onRadioClick, state } = this.props
 
     return (
-      <TaskItem>
+      <AnimatedTaskItem animation='fadeIn'>
         <Radio type={state} onRadioClick={onRadioClick} />
 
         { isEdit
@@ -48,7 +51,7 @@ export default class Task extends Component {
           />
           : <TaskText isCompleted={state === 'completed'}>{text}</TaskText>
         }
-      </TaskItem>
+      </AnimatedTaskItem>
     )
   }
 }
