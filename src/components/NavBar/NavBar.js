@@ -8,7 +8,10 @@ import * as taskActions from 'actions/tasks'
 import * as Notifications from 'utils/notification'
 
 const enhancer = connect(
-  state => ({ tasks: state.tasks, settings: state.settings }),
+  state => ({
+    tasks: state.tasks,
+    settings: state.settings
+  }),
   taskActions
 )
 

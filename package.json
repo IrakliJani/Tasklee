@@ -36,7 +36,14 @@
       "react-native"
     ],
     "plugins": [
-      ["module-resolver", { "root": ["./src"] }]
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ]
+        }
+      ]
     ]
   }
 }

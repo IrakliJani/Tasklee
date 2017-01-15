@@ -14,7 +14,7 @@ export function addTask () {
 export function editTask (index: number, text: string) {
   return {
     type: 'EDIT_TASK',
-    index: index,
+    index,
     payload: {
       text,
       isEdit: false
@@ -25,14 +25,21 @@ export function editTask (index: number, text: string) {
 export function completeTask (index: number) {
   return {
     type: 'COMPLETE_TASK',
-    index: index
+    index
   }
 }
 
 export function removeTask (index: number) {
   return {
     type: 'REMOVE_TASK',
-    index: index
+    index
+  }
+}
+
+export function removeTaskById (id: string) {
+  return {
+    type: 'REMOVE_TASK',
+    id
   }
 }
 

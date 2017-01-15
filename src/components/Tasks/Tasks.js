@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Alert, ListView, TouchableHighlight, Text } from 'react-native'
 import Swipeout from 'react-native-swipeout'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import styled from 'styled-components/native'
 import { Task } from 'components'
 import TaskRecord from 'records/task'
@@ -29,7 +30,10 @@ const Separator = styled.View`
   opacity: 0.1
 `
 
-const enhancer = connect(state => ({ tasks: state.tasks }), taskActions)
+const enhancer = connect(
+  state => ({ tasks: state.tasks.map(task => new TaskRecord(task)) }),
+  taskActions
+)
 
 class Tasks extends Component {
   state: { [key: string]: any }
@@ -53,6 +57,12 @@ class Tasks extends Component {
       const data = nextProps.tasks.toJS()
       this.setState({ dataSource: this.state.dataSource.cloneWithRows(data) })
     }
+
+    var today = moment().hour(0).minute(0).second(0)
+    nextProps.tasks
+      .filter(task => task.state === 'completed')
+      .filter(task => moment(task.date).isBefore(today))
+      .map(task => nextProps.removeTask(nextProps.tasks.indexOf(task)))
   }
 
   allowScroll (scrollEnabled) {
@@ -99,9 +109,7 @@ you must complete all previous Tasks`,
         }}
         onPress={this.props.removeTask.bind(this, index)}
       >
-        <Text style={{
-          color: 'white'
-        }}>Delete</Text>
+        <Text style={{ color: 'white' }}>Delete</Text>
       </TouchableHighlight>
     }]
 
