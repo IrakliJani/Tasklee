@@ -38,7 +38,7 @@ export default class Task extends Component {
 
         { isEdit
           ? <TextInput
-            style={{flex: 1}}
+            style={{flex: 1, paddingTop: 1}}
             ref='input'
             defaultValue={text}
             placeholder='Type in your priority task'

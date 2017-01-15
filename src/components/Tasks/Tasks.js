@@ -136,8 +136,11 @@ you must complete all previous Tasks`,
 
     return (
       <MainContainer>
-        <Greeting>
-          Here is your priority task list for today
+        <Greeting>{
+          tasks.size === 0
+            ? 'You haven\'t added have any tasks yet. 😶'
+            : 'Here is your priority task list for today. 👀'
+        }
         </Greeting>
 
         {/* <Button
